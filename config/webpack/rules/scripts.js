@@ -5,6 +5,7 @@ const infoConf = require('../../infoConf');
 const osSize = require('os').cpus().length;
 
 const { __PROD__, __DEV__ } = infoConf.STATUS;
+const { nodeModulesDir, includeDir } = infoConf.PATH;
 
 const threadLoaderOpts = {
   /** 产生的 worker 的数量，默认是 cpu 的核心数 */
@@ -54,6 +55,10 @@ module.exports = [
           {
             cacheDirectory: true,
             babelrc: false,
+            plugins: [
+              // 处理antd样式
+              ['import', { libraryName: 'antd', style: 'css' }, 'antd'],
+            ],
           },
           infoConf.BABELRC,
         ),
@@ -67,8 +72,8 @@ module.exports = [
         },
       },
     ],
-    include: infoConf.PATH.src,
-    exclude: path.join(infoConf.PATH.root, 'node_modules'),
+    include: [includeDir],
+    exclude: [nodeModulesDir],
   },
   {
     test: [/\.(js|jsx)$/],
@@ -82,7 +87,7 @@ module.exports = [
         infoConf.BABELRC,
       ),
     },
-    include: infoConf.PATH.src,
-    exclude: path.join(infoConf.PATH.root, 'node_modules'),
+    include: [includeDir],
+    exclude: [nodeModulesDir],
   },
 ];

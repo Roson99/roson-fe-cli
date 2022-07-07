@@ -1,0 +1,19 @@
+{
+  "delay": 2500,
+  "ext": "ts,js,json",
+  "ignore": [
+    ".git",
+    "package.json",
+    "node_modules/*",
+    "src/*"
+  ],
+  "watch": [
+    "config-overrides.js",
+    ".env",
+    "mock/*",
+    "*.html"
+  ],
+  "env": {
+    "NODE_ENV": "development"
+  }
+}

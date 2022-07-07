@@ -1,18 +1,21 @@
 // webpack.base.js
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 /** * @type {import('webpack').Configuration} */
-const isDev = process.env.NODE_ENV === 'development';
 const rules = require('./rules');
+const plugin = require('./plugin');
+const { __ENV__ } = require('../infoConf/status');
+const { resolve, assetsPath, publicPath } = require('../infoConf/path');
+console.log(`########### 当前环境：${__ENV__} ###########`);
 
 module.exports = {
   target: 'web',
-  entry: { app: './src/index.tsx' },
+  entry: { index: path.resolve(__dirname, '../../src/index.tsx') },
+  devtool: 'inline-source-map',
   output: {
-    path: path.resolve(__dirname, '../dist'),
-    filename: '[name].[hash].js',
+    path: resolve('dist'),
+    filename: `${assetsPath}/js/main.[contenthash:8].js`,
+    chunkFilename: `${assetsPath}/js/[name].[contenthash:8].js`,
+    publicPath,
   },
   module: {
     rules,
@@ -24,15 +27,7 @@ module.exports = {
     alias: { '@': path.resolve('src') },
     extensions: ['.tsx', '.ts', '.js', '.jsx', '.css', '.less'],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'roson-fe-cli',
-      template: path.resolve(__dirname, '../../public/index.html'),
-      filename: 'index.html',
-    }),
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({ filename: 'css/[name].[hash].css' }),
-  ],
+  plugins: plugin,
   cache: {
     type: 'filesystem', // 可选配置
     buildDependencies: {

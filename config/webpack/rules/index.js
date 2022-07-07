@@ -1,5 +1,3 @@
-const path = require('path');
-
 const styles = require('./styles');
 const scripts = require('./scripts');
 const assets = require('./assets');

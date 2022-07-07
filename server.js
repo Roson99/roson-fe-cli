@@ -4,22 +4,20 @@ const express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+const chalk = require('react-dev-utils/chalk');
+const openBrowser = require('react-dev-utils/openBrowser');
 
 const app = express();
 const webpackConfig = require('./config/webpack/webpack.dev');
 const compiler = webpack(webpackConfig);
-
-const { PORT = 8080, PROXY } = process.env;
-console.log('*********************************');
-console.log(webpackConfig);
-console.log('*********************************');
-console.log(process);
+const { PORT = 3000 } = process.env;
 
 // 告知 express 使用 webpack-dev-middleware，
 // 以及将 webpack.config.js 配置文件作为基础配置。
 app.use(
   webpackDevMiddleware(compiler, {
-    publicPath: webpackConfig.output.publicPath,
+    // noInfo: true,
+    publicPath: webpackConfig?.output?.publicPath,
   }),
 );
 // 挂载HMR热更新中间件
@@ -42,6 +40,13 @@ if (webpackConfig?.devServer?.proxy) {
   });
 }
 // 将文件 serve 到 port
-app.listen(PORT, function () {
-  console.log('App listening on port PORT。\n');
-});
+app.listen(PORT, initFun);
+
+function initFun() {
+  // 本机项目的url地址
+  const url = `http://localhost:${PORT}/`;
+  console.log(`App listening on port PORT:${PORT}.`);
+  console.log(chalk.white('服务已经启动，等待Webpack构建完成即可访问!'));
+  console.log(`Network: ${chalk.yellow(url)}`);
+  openBrowser(url);
+}

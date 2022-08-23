@@ -1,0 +1,131 @@
+@import (reference) '~@/assets/less/variables.less';
+
+:global {
+  html {
+    --antd-wave-shadow-color: none;
+  }
+
+  .ant-switch {
+    box-shadow: none !important;
+    background-image: none;
+  }
+
+  .ant-input {
+    &:focus {
+      box-shadow: none !important;
+      border-color: @primary-color !important;
+    }
+  }
+
+  .ant-btn-lg {
+    height: 36px !important;
+    line-height: 16px !important;
+  }
+
+  .input {
+    border-radius: 4px !important;
+  }
+
+  .ant-tooltip-inner {
+    font-size: 12px;
+  }
+
+  .ant-btn {
+    box-shadow: none !important;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: @border-color-base;
+  }
+
+  .link {
+    color: @link-color;
+  }
+  .disabled {
+    color: @disabled-color;
+    cursor: not-allowed;
+  }
+  .inherit {
+    &_H {
+      height: inherit;
+    }
+  }
+  .oobtn {
+    &.main {
+      color: @primary-color;
+      border-color: @primary-color;
+    }
+  }
+
+  .oocard {
+    border-radius: @card-radius;
+    background-color: #fff;
+    padding: 24px;
+  }
+
+  .oodot {
+    &::after:local {
+      content: '';
+      animation: oodot 1s infinite;
+    }
+  }
+  .ooexampleSrc {
+    width: 840px;
+  }
+  .ooflip-vertical-right {
+    &:local {
+      animation: flip-vertical-right 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite
+        alternate-reverse both;
+    }
+  }
+  .ooselected {
+    cursor: pointer;
+    &:hover {
+      color: @primary-color;
+    }
+  }
+  .oopopover {
+    .ant-popover-arrow {
+      display: none;
+    }
+  }
+}
+
+@keyframes oodot {
+  0% {
+    content: '';
+  }
+  33% {
+    content: '.';
+  }
+  66% {
+    content: '..';
+  }
+  100% {
+    content: '...';
+  }
+}
+/**
+ * ----------------------------------------
+ * animation flip-vertical-right
+ * ----------------------------------------
+ */
+@keyframes flip-vertical-right {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}

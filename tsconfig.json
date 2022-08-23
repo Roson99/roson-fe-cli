@@ -1,0 +1,73 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    /** baseUrl 设置解析非绝对路径模块名时的基准目录。 */
+    "baseUrl": "./",
+    /** target allowJs 都开启后，在使用tsc编译时，就会编译js文件了。 */
+    "target": "es5",
+    "allowJs": true,
+    /** 设置程序的模块系统 */
+    "module": "esnext",
+    /** 指定模块解析策略 */
+    "moduleResolution": "node",
+    /** 
+      类型 -types: 禁用自动引入@types包 加载的声明文件包
+      如果指定了某个值，会在 typeRoots（默认所有node_modules） 下找这个包，找到了就只加载这个包
+    */
+    "types": ["node"],
+    /** 编译时引入的es功能库 */
+    "lib": ["dom", "dom.iterable", "esnext"],
+    /** 
+      控制 JSX 在 JavaScript 文件中的输出方式。 这只影响 .tsx 文件的 JS 文件输出。 
+      react-jsx: 改为 __jsx 调用并生成 .js 文件。
+      import { jsx as _jsx } from "react/jsx-runtime";
+      import React from 'react';
+      */
+    "jsx": "react-jsx",
+    /** 
+      允许合成默认导入 
+      本选项不会影响 TypeScript 生成的 JavaScript，它仅对类型检查起作用。
+      当你使用 Babel 生成额外的默认导出，从而使模块的默认导出更易用时，
+      本选项可以让 TypeScript 的行为与 Babel 一致。 
+    */
+    "allowSyntheticDefaultImports": true,
+    /** 
+      开启 esModuleInterop 选项将会修复 TypeScript 转译中的这两个问题。
+      1.通过改变编译器的行为来修复
+      2.由两个新的工具函数来解决，它们提供了确保生成的 JavaScript 兼容性的适配层
+    */
+    "esModuleInterop": true,
+    /** 通过tslib引入helper函数 */
+    "importHelpers": true,
+    /**  */
+    "experimentalDecorators": true,
+    /** 严格模式 */
+    "strict": true,
+    /**  */
+    "forceConsistentCasingInFileNames": true,
+    /** 必须含有返回值 */
+    "noImplicitReturns": true,
+    /** 
+    sourceMap 简单说，Source map 就是一个信息文件，里面储存着位置信息。
+    也就是说，转换后的代码的每一个位置，所对应的转换前的位置。
+    有了它，出错的时候，除错工具将直接显示原始代码，而不是转换后的代码。
+    这无疑给开发者带来了很大方便。 
+    */
+    "sourceMap": false,
+    /** 支持引入json */
+    "resolveJsonModule": true,
+    /** 对象取值(obj[a] obj无a属性)问题不报错 */
+    "suppressImplicitAnyIndexErrors": true,
+    /** 自动声明文件 */
+    "declaration": true,
+    /**  */
+    "skipLibCheck": true,
+    /** 路径设置: 一些将模块导入重新映射到相对于 baseUrl 路径的配置。 */
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": [
+    "src"
+  ]
+}

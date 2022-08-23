@@ -1,0 +1,54 @@
+.pointer {
+  &:hover {
+    cursor: pointer;
+  }
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .storeImage {
+    width: 32px;
+    height: 32px;
+    margin: 0 15px;
+  }
+
+  .storeName {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    .pointer();
+  }
+
+  .userAvatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 14px;
+    width: 32px;
+    height: 32px;
+    background: @primary-color;
+    border-radius: 56px;
+    &:hover {
+      cursor: default;
+    }
+  }
+
+  .shopifyLogo {
+    margin-right: 12px;
+    font-size: 18px;
+  }
+
+  .languageSelect {
+    color: #67748e;
+    width: 106px;
+    text-align: center;
+    border: transparent 1px solid;
+    &:hover {
+      border: @black 1px solid;
+      border-radius: 5px;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  /** i18n-ally */
+  "i18n-ally.localesPaths": ["src/i18n", "src/i18n/locales"],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.enabledParsers": ["json", "js", "ts"],
+  /** 自定义文件名匹配 */
+  "i18n-ally.pathMatcher": "{locale}/{namespaces}.js",
+  "i18n-ally.sourceLanguage": "zh-CN",
+  "i18n-ally.displayLanguage": "zh-CN",
+  "i18n-ally.theme.annotation": "#CC9966",
+  "i18n-ally.theme.annotationBorder": "rgba(153, 153, 153, .8)",
+  "i18n-ally.theme.annotationMissing": "#d37070",
+  "i18n-ally.theme.annotationMissingBorder": "#d37070",
+  /** 自定义命名空间匹配 */
+  // "i18n-ally.namespace": true,
+  // "i18n-ally.editor.preferEditor": true
+  "i18n-ally.enabledFrameworks": [
+    "react",
+    "i18next"
+  ],
+  "i18n-ally.extract.autoDetect": false,
+  "i18n-ally.fullReloadOnChanged": true,
+  "i18n-ally.sortKeys": false,
+  "i18n-ally.extract.keyMaxLength": 30,
+  "i18n-ally.readonly": false,
+  "i18n-ally.review.enabled": false,
+  "i18n-ally.review.gutters": false,
+}

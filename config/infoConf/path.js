@@ -14,7 +14,7 @@ module.exports = {
   /** 代理路径 */
   assetsPath: 'static',
   /** 打包路径 */
-  // publicPath: __PROD__ ? 'https://app-s3.quickcep.com/' : '/',
+  // publicPath: '/',
   publicPath: '/',
   includeDir: localResolve('src'),
   publicDir: localResolve('public'),
